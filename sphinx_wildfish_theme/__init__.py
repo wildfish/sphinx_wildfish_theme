@@ -12,7 +12,7 @@ import sphinx
 from .wildfish import setup_wildfish
 
 
-__version__ = "0.4.3.dev0.fork0"
+__version__ = "0.4.3.dev0.fork1"
 __version_full__ = __version__
 
 
@@ -31,5 +31,7 @@ def setup(app):
     if sphinx.version_info >= (1, 8, 0):
         # Add Sphinx message catalog for newer versions of Sphinx
         # See http://www.sphinx-doc.org/en/master/extdev/appapi.html#sphinx.application.Sphinx.add_message_catalog
-        rtd_locale_path = path.join(path.abspath(path.dirname(__file__)), "locale")
-        app.add_message_catalog("sphinx", rtd_locale_path)
+        rtd_locale_path = path.join(path.abspath(path.dirname(__file__)), 'locale')
+        app.add_message_catalog('sphinx', rtd_locale_path)
+
+    return {'parallel_read_safe': True, 'parallel_write_safe': True}

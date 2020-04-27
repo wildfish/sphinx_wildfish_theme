@@ -51,6 +51,33 @@ Developing
       npm run dev
       npm run build
 
+The upstream project does not currently use black, so take care to not apply
+auto-formatting.
+
+
+Merging from upstream
+---------------------
+
+Pull into new branch
+
+    git remote add upstream https://github.com/readthedocs/sphinx_rtd_theme.git
+    git fetch upstream
+    git checkout master
+    git pull
+    git checkout -b merge-upstream
+    git merge upstream/master
+
+Resolve any conflicts (ignoring ``sphinx_wildfish_theme/static`` - we'll rebuild that).
+In particular, check for changes in these files:
+
+* ``README.rst`` - keep our version
+* ``setup.*``, `MANIFEST.in` - check for new ``sphinx_rtd_theme``
+* ``setup.py`` - update version (add ``.fork0`` to upstream)
+* ``sphinx_wildfish_theme/__init__.py`` - update version and check theme name is
+  ``sphinx_wildfish_theme``
+* ``src/sass/theme.sass`` - make sure ``theme_variables`` is followed by
+  ``wildfish_variables`` and ``wildfish_styles`` is at the bottom
+
 
 More information
 ================
