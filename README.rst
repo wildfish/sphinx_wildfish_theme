@@ -58,25 +58,41 @@ auto-formatting.
 Merging from upstream
 ---------------------
 
-Pull into new branch
+#.  Pull into new branch::
 
-    git remote add upstream https://github.com/readthedocs/sphinx_rtd_theme.git
-    git fetch upstream
-    git checkout master
-    git pull
-    git checkout -b merge-upstream
-    git merge upstream/master
+      git remote add upstream https://github.com/readthedocs/sphinx_rtd_theme.git
+      git fetch upstream
+      git checkout master
+      git pull
+      git checkout -b merge-upstream
+      git merge upstream/master
 
-Resolve any conflicts (ignoring ``sphinx_wildfish_theme/static`` - we'll rebuild that).
-In particular, check for changes in these files:
+#.  Resolve any conflicts (ignoring ``sphinx_wildfish_theme/static`` - we'll rebuild
+    that). In particular, check for changes in these files:
 
-* ``README.rst`` - keep our version
-* ``setup.*``, `MANIFEST.in` - check for new ``sphinx_rtd_theme``
-* ``setup.py`` - update version (add ``.fork0`` to upstream)
-* ``sphinx_wildfish_theme/__init__.py`` - update version and check theme name is
-  ``sphinx_wildfish_theme``
-* ``src/sass/theme.sass`` - make sure ``theme_variables`` is followed by
-  ``wildfish_variables`` and ``wildfish_styles`` is at the bottom
+    * ``README.rst`` - keep our version
+    * ``setup.*``, ``MANIFEST.in`` - check for new ``sphinx_rtd_theme``
+    * ``setup.py`` - update version (add ``.fork0`` to upstream)
+    * ``sphinx_wildfish_theme/__init__.py`` - update version and check theme name is
+      ``sphinx_wildfish_theme``
+    * ``src/sass/theme.sass`` - make sure ``theme_variables`` is followed by
+      ``wildfish_variables`` and ``wildfish_styles`` is at the bottom
+    * ``sphinx_rtd_theme/*`` - move files over to ``sphinx_wildfish_theme``
+
+    Test with::
+
+        npm install
+        npm run dev
+
+#.  Rebuild and push::
+
+        npm run build
+        git add .
+        git commit
+        git checkout master
+        git merge merge-upstream
+        git branch -d merge-upstream
+        git push
 
 
 More information
