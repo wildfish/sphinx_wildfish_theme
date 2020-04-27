@@ -1,0 +1,76 @@
+// Override default RTD rst styles
+
+a:visited:hover
+  color: $link-color-hover
+
+.rst-content
+  // Reduce gap between paragraphs and lists
+  .section ol p, .section ul p
+    & + ul, & + ol
+      margin-top: -$base-line-height / 2
+      margin-bottom: $base-line-height / 4
+
+  h1, h2, h3, h4, h5, h6, dl dt, p.caption, table > caption, .code-block-caption
+    color: $text-header-color
+
+  .sidebar
+    // Allow multiple sidebars on one page
+    clear: right
+
+  table
+    // Fix at full width
+    table-layout: fixed
+    width: 100%
+
+    td, th
+      white-space: normal
+      vertical-align: top
+
+      // Avoid unnecessary whitespace at the bottom of each cell
+      *:last-child
+        margin-bottom: 0
+    th
+      text-align: left
+
+      // Re-balance p to avoid unnecessary whitespace
+      p
+        margin-bottom: 0
+        & + p
+            margin-top: 24px
+
+  // Pass odd/even colouring through to stub headers
+  table.docutils:not(.field-list)
+    tr:nth-child(2n-1)
+      th.stub
+        background-color: $table-stripe-color
+
+  table.docutils
+    th, td
+      vertical-align: top
+
+    th
+      // Style with borders
+      border-left: 1px solid $table-border-color;
+      &.stub
+        border-left: 0
+        border-bottom: 1px solid $table-border-color
+        p
+          // Balance with td
+          line-height: 18px
+
+// Sidebar logo
+.wy-nav-side
+  .wildfish_logo
+    margin: 48px
+    text-align: center
+
+    a
+      background: #a42008 url("wildfish_logo.svg") center/contain no-repeat
+      background-origin: content-box
+      margin: 12px 0 0 0
+      display: block
+      height: 74px
+      padding: 24px
+      overflow: hidden
+      text-indent: -999em
+

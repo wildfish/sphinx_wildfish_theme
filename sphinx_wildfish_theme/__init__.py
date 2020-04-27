@@ -1,4 +1,5 @@
 """
+Sphinx Wildfish theme, based on
 Sphinx Read the Docs theme.
 
 From https://github.com/ryan-roemer/sphinx-bootstrap-theme.
@@ -8,8 +9,10 @@ from os import path
 
 import sphinx
 
+from .wildfish import setup_wildfish
 
-__version__ = '0.4.3.dev0'
+
+__version__ = "0.4.3.dev0.fork0"
 __version_full__ = __version__
 
 
@@ -21,10 +24,12 @@ def get_html_theme_path():
 
 # See http://www.sphinx-doc.org/en/stable/theming.html#distribute-your-theme-as-a-python-package
 def setup(app):
-    app.add_html_theme('sphinx_rtd_theme', path.abspath(path.dirname(__file__)))
+    app.add_html_theme("sphinx_wildfish_theme", path.abspath(path.dirname(__file__)))
+
+    setup_wildfish(app)
 
     if sphinx.version_info >= (1, 8, 0):
         # Add Sphinx message catalog for newer versions of Sphinx
         # See http://www.sphinx-doc.org/en/master/extdev/appapi.html#sphinx.application.Sphinx.add_message_catalog
-        rtd_locale_path = path.join(path.abspath(path.dirname(__file__)), 'locale')
-        app.add_message_catalog('sphinx', rtd_locale_path)
+        rtd_locale_path = path.join(path.abspath(path.dirname(__file__)), "locale")
+        app.add_message_catalog("sphinx", rtd_locale_path)

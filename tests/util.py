@@ -1,12 +1,14 @@
 from __future__ import print_function
 
 import os
-import tempfile
 import shutil
+import tempfile
 from contextlib import contextmanager
 
-import pytest
 from sphinx.application import Sphinx
+
+import pytest
+
 
 try:
     from StringIO import StringIO
@@ -31,7 +33,7 @@ def build(root, builder='html', **kwargs):
     })
 
     confoverrides = kwargs.pop('confoverrides', {})
-    confoverrides['html_theme'] = 'sphinx_rtd_theme'
+    confoverrides['html_theme'] = 'sphinx_wildfish_theme'
     extensions = confoverrides.get('extensions', [])
     extensions.append('readthedocs_ext.readthedocs')
     confoverrides['extensions'] = extensions

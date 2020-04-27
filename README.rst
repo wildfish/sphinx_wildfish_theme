@@ -1,70 +1,67 @@
-**************************
-Read the Docs Sphinx Theme
-**************************
+=====================
+Wildfish Sphinx Theme
+=====================
 
-.. image:: https://img.shields.io/pypi/v/sphinx_rtd_theme.svg
-   :target: https://pypi.python.org/pypi/sphinx_rtd_theme
-   :alt: Pypi Version
-.. image:: https://travis-ci.org/readthedocs/sphinx_rtd_theme.svg?branch=master
-   :target: https://travis-ci.org/readthedocs/sphinx_rtd_theme
-   :alt: Build Status
-.. image:: https://img.shields.io/pypi/l/sphinx_rtd_theme.svg
-   :target: https://pypi.python.org/pypi/sphinx_rtd_theme/
-   :alt: License
-.. image:: https://readthedocs.org/projects/sphinx-rtd-theme/badge/?version=latest
-  :target: http://sphinx-rtd-theme.readthedocs.io/en/latest/?badge=latest
-  :alt: Documentation Status
+This Sphinx theme is a fork of the official `Read the Docs`_ theme, which adds:
 
-This Sphinx_ theme was designed to provide a great reader experience for
-documentation users on both desktop and mobile devices. This theme is used
-primarily on `Read the Docs`_ but can work with any Sphinx project. You can find
-a working demo of the theme in the `theme documentation`_
+* Wildfish colour scheme
+* Support for balanced full-width tables
+* Support for strikethroughs with ``:strike:`content```
+* Support multiple sidebars
+* Minor spacing enhancements
+* Adds optional Wildfish logo to sidebar
 
-.. _Sphinx: http://www.sphinx-doc.org
-.. _Read the Docs: http://www.readthedocs.org
-.. _theme documentation: https://sphinx-rtd-theme.readthedocs.io/en/latest/
 
-Installation
-============
-
-This theme is distributed on PyPI_ and can be installed with ``pip``:
-
-.. code:: console
-
-   $ pip install sphinx-rtd-theme
-
-To use the theme in your Sphinx project, you will need to add the following to
-your ``conf.py`` file:
-
-.. code:: python
-
-    import sphinx_rtd_theme
-
-    extensions = [
-        ...
-        "sphinx_rtd_theme",
-    ]
-
-    html_theme = "sphinx_rtd_theme"
-
-For more information read the full documentation on `installing the theme`_
-
-.. _PyPI: https://pypi.python.org/pypi/sphinx_rtd_theme
-.. _installing the theme: https://sphinx-rtd-theme.readthedocs.io/en/latest/installing.html
-
-Configuration
+Using in docs
 =============
 
-This theme is highly customizable on both the page level and on a global level.
-To see all the possible configuration options, read the documentation on
-`configuring the theme`_.
+Install::
 
-.. _configuring the theme: https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
+    pip install -e https://github.com/wildfish/sphinx_wildfish_theme.git
 
-Contributing
-============
+Add to ``conf.py``::
 
-If you would like to help modify or translate the theme, you'll find more
-information on contributing in our `contributing guide`_.
+    import sphinx_wildfish_theme
+    extensions = [
+        ...
+        'sphinx_wildfish_theme',
+    ]
+    html_theme = "sphinx_wildfish_theme"
 
-.. _contributing guide: https://sphinx-rtd-theme.readthedocs.io/en/latest/contributing.html
+Optional settings for ``conf.py``::
+
+    html_theme_options = {
+      "display_wildfish_logo": False,
+      "wildfish_logo_text": "A project by",
+    }
+
+
+Developing
+==========
+
+#. Check out the project from git
+#. Update ``conf.py`` as above, but add::
+
+      html_theme_path = ["/path/to/sphinx_wildfish_theme"]
+
+#. Watch or build static::
+
+      nvm install
+      nvm use
+      npm run dev
+      npm run build
+
+
+More information
+================
+
+See original documentation for:
+
+* Installing_
+* Configuring_
+* Contributing_
+
+.. _Read the Docs: https://sphinx-rtd-theme.readthedocs.io/en/latest/
+.. _Installing: https://sphinx-rtd-theme.readthedocs.io/en/latest/installing.html
+.. _Configuring: https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
+.. _Contributing: https://sphinx-rtd-theme.readthedocs.io/en/latest/contributing.html

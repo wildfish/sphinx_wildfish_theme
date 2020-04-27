@@ -165,6 +165,14 @@
               <div class="local-toc">{{ toc }}</div>
             {% endif %}
           {% endblock %}
+
+          {% if theme_display_wildfish_logo %}
+          <div class="wildfish_logo">
+            {{ theme_wildfish_logo_text }}
+            <a href="https://wildfish.com/">Wildfish.com</a>
+          </div>
+          {% endif %}
+
         </div>
         {% endblock %}
       </div>

@@ -5,11 +5,12 @@
 
 """
 
+import distutils.cmd
 import os
 import subprocess
-import distutils.cmd
-import setuptools.command.build_py
 from io import open
+
+import setuptools.command.build_py
 from setuptools import setup
 
 
@@ -84,13 +85,13 @@ class TransifexCommand(distutils.cmd.Command):
 
 
 setup(
-    name='sphinx_rtd_theme',
-    version='0.4.3.dev0',
-    url='https://github.com/rtfd/sphinx_rtd_theme/',
+    name='sphinx_wildfish_theme',
+    version='0.4.3.dev0.fork0',
+    url='https://github.com/wildfish/sphinx_wildfish_theme',
     license='MIT',
     author='Dave Snider, Read the Docs, Inc. & contributors',
-    author_email='dev@readthedocs.org',
-    description='Read the Docs theme for Sphinx',
+    author_email='richard@wildfish.com',
+    description='Wildfish theme for Sphinx',
     long_description=open('README.rst', encoding='utf-8').read(),
     cmdclass={
         'update_translations': UpdateTranslationsCommand,
@@ -99,8 +100,8 @@ setup(
         'watch': WebpackDevelopCommand,
     },
     zip_safe=False,
-    packages=['sphinx_rtd_theme'],
-    package_data={'sphinx_rtd_theme': [
+    packages=['sphinx_wildfish_theme'],
+    package_data={'sphinx_wildfish_theme': [
         'theme.conf',
         '*.html',
         'static/css/*.css',
@@ -111,7 +112,7 @@ setup(
     # See http://www.sphinx-doc.org/en/stable/theming.html#distribute-your-theme-as-a-python-package
     entry_points = {
         'sphinx.html_themes': [
-            'sphinx_rtd_theme = sphinx_rtd_theme',
+            'sphinx_wildfish_theme = sphinx_wildfish_theme',
         ]
     },
     install_requires=[

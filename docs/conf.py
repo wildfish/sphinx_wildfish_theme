@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 
-import sys
 import os
 import re
+import sys
+
+from sphinx.locale import _
+
+from sphinx_wildfish_theme import __version__
+
 
 if not 'READTHEDOCS' in os.environ:
     sys.path.insert(0, os.path.abspath('..'))
 sys.path.append(os.path.abspath('./demo/'))
 
-from sphinx.locale import _
-from sphinx_rtd_theme import __version__
 
 
 project = u'Read the Docs Sphinx Theme'
@@ -26,7 +29,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinxcontrib.httpdomain',
-    'sphinx_rtd_theme',
+    'sphinx_wildfish_theme',
 ]
 
 templates_path = ['_templates']
@@ -44,7 +47,7 @@ intersphinx_mapping = {
     'sphinx': ('http://www.sphinx-doc.org/en/stable/', None),
 }
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_wildfish_theme'
 html_theme_options = {
     'logo_only': True
 }
