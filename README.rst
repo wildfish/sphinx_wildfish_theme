@@ -44,15 +44,29 @@ Developing
 
       html_theme_path = ["/path/to/sphinx_wildfish_theme"]
 
-#. Watch or build static::
+#. Watch static and open the demo site in a browser::
 
       nvm install
       nvm use
       npm run dev
-      npm run build
 
 The upstream project does not currently use black, so take care to not apply
-auto-formatting.
+auto-formatting to files which originate upstream.
+
+
+Releasing a new version
+-----------------------
+
+#. Build static::
+
+      npm run build
+
+#. Update the fork number in the version string in ``setup.py`` and
+   ``sphinx_wildfish_theme/__init__.py``
+
+#. Commit and push to ``master``.
+
+This project is not on pypi.
 
 
 Merging from upstream

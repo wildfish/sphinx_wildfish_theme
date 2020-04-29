@@ -86,7 +86,7 @@ class TransifexCommand(distutils.cmd.Command):
 
 setup(
     name='sphinx_wildfish_theme',
-    version='0.4.3.dev0.fork1',
+    version='0.4.3.dev0.fork2',
     url='https://github.com/wildfish/sphinx_wildfish_theme',
     license='MIT',
     author='Dave Snider, Read the Docs, Inc. & contributors',
