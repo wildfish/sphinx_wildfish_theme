@@ -12,7 +12,7 @@ import sphinx
 from .wildfish import setup_wildfish
 
 
-__version__ = "0.4.3.dev0.fork2"
+__version__ = "0.4.3"
 __version_full__ = __version__
 
 
